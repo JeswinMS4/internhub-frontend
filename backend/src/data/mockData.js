@@ -1,0 +1,67 @@
+export const users = [
+    {
+      id: '1',
+      name: 'Admin User',
+      email: 'admin@internhub.com',
+      password: 'admin123',
+      role: 'admin',
+      avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+    },
+    {
+      id: '2',
+      name: 'Program Manager',
+      email: 'pm@internhub.com',
+      password: 'pm123',
+      role: 'program_manager',
+      avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+    },
+    {
+      id: '3',
+      name: 'Guide User',
+      email: 'guide@internhub.com',
+      password: 'guide123',
+      role: 'guide',
+      avatar: 'https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+    },
+    {
+      id: '4',
+      name: 'Intern User',
+      email: 'intern@internhub.com',
+      password: 'intern123',
+      role: 'intern',
+      avatar: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+    },
+    {
+      id: '5',
+      name: 'Panel Member',
+      email: 'panel@internhub.com',
+      password: 'panel123',
+      role: 'panel_member',
+      avatar: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+    },
+  ];
+  
+  export const projects = [
+    {
+      id: '1',
+      title: 'API Gateway Implementation',
+      description: 'Developing a robust API gateway for microservices architecture',
+      status: 'active',
+      startDate: '2024-03-01',
+      endDate: '2024-05-31',
+      guide: users[2],
+      interns: [users[3]],
+      githubRepo: 'https://github.com/internhub/api-gateway',
+    },
+    {
+      id: '2',
+      title: 'Mobile App Development',
+      description: 'Creating a cross-platform mobile application using React Native',
+      status: 'active',
+      startDate: '2024-02-15',
+      endDate: '2024-05-15',
+      guide: users[2],
+      interns: [users[3]],
+      githubRepo: 'https://github.com/internhub/mobile-app',
+    },
+  ];

@@ -17,9 +17,22 @@ import { errorHandler } from './middleware/errorHandler.js';
 dotenv.config();
 
 const app = express();
-
+const allowedOrigins = [
+  'http://13.235.49.104:5173',
+  'http://localhost:5173',
+  'https://your-production-domain.com'
+];
 app.use(cors({
-  origin: 'http://localhost:5173', // Replace with your frontend URL
+  origin: (origin, callback) => {
+    // Allow requests with no origin (like mobile apps or curl)
+    if (!origin) return callback(null, true);
+
+    if (allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  }, // Replace with your frontend URL
   credentials: true,
 }));
 app.use(express.json());
@@ -44,6 +57,6 @@ mongoose.connect(process.env.MONGODB_URI)
   .catch((err) => console.error('MongoDB connection error:', err));
 
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
+app.listen(PORT,'0.0.0.0', () => {
   console.log(`Server running on port ${PORT}`);
 });

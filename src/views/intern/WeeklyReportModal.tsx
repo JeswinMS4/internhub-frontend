@@ -5,6 +5,7 @@ interface Props {
   projectId: string;
   onReportCreated: () => void; // Callback to refresh reports if needed
 }
+const API_BASE_URL = import.meta.env.REACT_APP_API_BASE_URL || 'http://localhost:5000';
 
 export default function WeeklyReportModal({ onClose, projectId, onReportCreated }: Props) {
   const [file, setFile] = useState<File | null>(null);
@@ -24,7 +25,7 @@ export default function WeeklyReportModal({ onClose, projectId, onReportCreated 
       formData.append('summary', summary);
       formData.append('projectId', projectId);
 
-      const response = await fetch('http://localhost:5000/api/reports', {
+      const response = await fetch(`${API_BASE_URL}/api/reports`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('token')}`

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { format } from 'date-fns';
 import EditProjectModal from './EditProjectModal'; // Import your EditProjectModal
 import CreateProjectModal from './CreateProjectModal';
+const API_BASE_URL = import.meta.env.REACT_APP_API_BASE_URL || 'http://localhost:5000';
 
 interface User {
   _id: string;
@@ -43,14 +44,14 @@ export default function ProjectsList() {
 
   const fetchUsers = async () => {
     // Fetch guides
-    let response = await fetch('http://localhost:5000/api/users?role=guide', {
+    let response = await fetch(`${API_BASE_URL}/api/users?role=guide`, {
       headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
     });
     let data = await response.json();
     setGuides(data); 
 
     // Fetch interns
-    response = await fetch('http://localhost:5000/api/users?role=intern', {
+    response = await fetch(`${API_BASE_URL}/api/users?role=intern`, {
       headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
     });
     data = await response.json();
@@ -62,7 +63,7 @@ export default function ProjectsList() {
     setLoading(true);
     setError('');
     try {
-      const response = await fetch('http://localhost:5000/api/projects', {
+      const response = await fetch(`${API_BASE_URL}/api/projects`, {
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('token')}`
         }
@@ -85,7 +86,7 @@ export default function ProjectsList() {
   const handleDeleteProject = async (id: string) => {
     if (!window.confirm('Are you sure you want to delete this project?')) return;
     try {
-      const response = await fetch(`http://localhost:5000/api/projects/${id}`, {
+      const response = await fetch(`${API_BASE_URL}/api/projects/${id}`, {
         method: 'DELETE',
         headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
       });

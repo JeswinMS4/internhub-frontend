@@ -4,6 +4,7 @@ import CreateMeetingModal from './CreateMeetingModal';
 import CreateTaskModal from './CreateTaskModal';
 // If you created a GuideReportsSection component as previously discussed
 // import GuideReportsSection from './GuideReportsSection';
+const API_BASE_URL = import.meta.env.REACT_APP_API_BASE_URL || 'http://localhost:5000';
 
 interface User {
   _id: string;
@@ -60,14 +61,14 @@ export default function GuideDashboard() {
   const fetchGuideData = async () => {
     try {
       // Fetch projects
-      const projectsRes = await fetch(`http://localhost:5000/api/projects?guideId=${guideId}`, {
+      const projectsRes = await fetch(`${API_BASE_URL}/api/projects?guideId=${guideId}`, {
         headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
       });
       const projectsData = await projectsRes.json();
       setProjects(projectsData);
 
       // Fetch meetings
-      const meetingsRes = await fetch(`http://localhost:5000/api/meetings?guideId=${guideId}`, {
+      const meetingsRes = await fetch(`${API_BASE_URL}/api/meetings?guideId=${guideId}`, {
         headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
       });
       const meetingsData = await meetingsRes.json();
@@ -79,7 +80,7 @@ export default function GuideDashboard() {
 
   const fetchReports = async (projectId: string) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/reports?projectId=${projectId}`, {
+      const response = await fetch(`${API_BASE_URL}/api/reports?projectId=${projectId}`, {
         headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
       });
       const data = await response.json();

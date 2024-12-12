@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+const API_BASE_URL = import.meta.env.REACT_APP_API_BASE_URL || 'http://localhost:5000';
 
 interface User {
   _id: string;
@@ -42,7 +43,7 @@ export default function EditProjectModal({ onClose, project, guides, internUsers
     e.preventDefault();
     setLoading(true);
     try {
-      const response = await fetch(`http://localhost:5000/api/projects/${project._id}`, {
+      const response = await fetch(`${API_BASE_URL}/api/projects/${project._id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

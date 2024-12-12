@@ -3,6 +3,8 @@ import { CheckCircle, XCircle, User, Loader } from 'lucide-react';
 import DashboardLayout from '../../components/layout/DashboardLayout';
 import { format } from 'date-fns';
 
+const API_BASE_URL = import.meta.env.REACT_APP_API_BASE_URL || 'http://localhost:5000';
+
 interface Application {
   _id: string;
   name: string;
@@ -34,7 +36,7 @@ export default function ApplicationReview() {
     setLoading(true);
     setError('');
     try {
-      const response = await fetch('http://localhost:5000/api/applications');
+      const response = await fetch(`${API_BASE_URL}/api/applications`);
       if (!response.ok) {
         throw new Error('Failed to fetch applications');
       }
@@ -69,7 +71,7 @@ export default function ApplicationReview() {
 
     setActionLoading((prev) => ({ ...prev, [id]: true }));
     try {
-      const response = await fetch(`http://localhost:5000/api/applications/${id}/approve`, {
+      const response = await fetch(`${API_BASE_URL}/api/applications/${id}/approve`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ internEmail, internPassword })
@@ -90,7 +92,7 @@ export default function ApplicationReview() {
   const handleReject = async (id: string) => {
     setActionLoading((prev) => ({ ...prev, [id]: true }));
     try {
-      const response = await fetch(`http://localhost:5000/api/applications/${id}/status`, {
+      const response = await fetch(`${API_BASE_URL}/api/applications/${id}/status`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

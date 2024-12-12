@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+const API_BASE_URL = import.meta.env.REACT_APP_API_BASE_URL || 'http://localhost:5000';
 
 interface Intern {
   _id: string;
@@ -23,7 +24,7 @@ export default function CreateMeetingModal({ onClose, projectId, interns, onMeet
     e.preventDefault();
     setLoading(true);
     try {
-      const response = await fetch('http://localhost:5000/api/meetings', {
+      const response = await fetch(`${API_BASE_URL}/api/meetings`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

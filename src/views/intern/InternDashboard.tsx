@@ -3,6 +3,7 @@ import { GitBranch, MessageSquare, Clock } from 'lucide-react';
 import DashboardLayout from '../../components/layout/DashboardLayout';
 import AddFeedbackModal from './AddFeedbackModal';
 import WeeklyReportModal from './WeeklyReportModal';
+const API_BASE_URL = import.meta.env.REACT_APP_API_BASE_URL || 'http://localhost:5000';
 
 export default function InternDashboard() {
   const [project, setProject] = useState<any>(null);
@@ -22,14 +23,14 @@ export default function InternDashboard() {
 
   const fetchProjectAndTasks = async () => {
     try {
-      const projectRes = await fetch(`http://localhost:5000/api/projects?internId=${internId}`, {
+      const projectRes = await fetch(`${API_BASE_URL}/api/projects?internId=${internId}`, {
         headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
       });
       const projectsData = await projectRes.json();
       const currentProject = projectsData[0]; // assuming one project per intern
       setProject(currentProject);
 
-      const tasksRes = await fetch(`http://localhost:5000/api/tasks?assignedTo=${internId}`, {
+      const tasksRes = await fetch(`${API_BASE_URL}/api/tasks?assignedTo=${internId}`, {
         headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
       });
       const tasksData = await tasksRes.json();
@@ -42,7 +43,7 @@ export default function InternDashboard() {
   };
 
   const handleFeedback = async (taskId: string, feedback: string) => {
-    await fetch(`http://localhost:5000/api/tasks/${taskId}`, {
+    await fetch(`${API_BASE_URL}/api/tasks/${taskId}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',

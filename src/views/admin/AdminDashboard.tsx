@@ -4,6 +4,12 @@ import DashboardLayout from '../../components/layout/DashboardLayout';
 import StatCard from '../../components/dashboard/StatCard';
 import CreateProjectModal from './CreateProjectModal';
 import ProjectsList from './ProjectsList';
+// import dotenv from 'dotenv';
+
+// // Load the `.env` file
+// dotenv.config();
+
+const API_BASE_URL = import.meta.env.REACT_APP_API_BASE_URL || 'http://localhost:5000';
 
 interface Stat {
   title: string;
@@ -37,7 +43,7 @@ export default function AdminDashboard() {
     setLoadingUsers(true);
     setUsersError('');
     try {
-      const response = await fetch('http://localhost:5000/api/users', {
+      const response = await fetch(`${API_BASE_URL}/api/users`, {
         headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
       });
       if (!response.ok) {
@@ -56,7 +62,7 @@ export default function AdminDashboard() {
   const handleDeleteUser = async (id: string) => {
     if (!window.confirm('Are you sure you want to delete this user?')) return;
     try {
-      const response = await fetch(`http://localhost:5000/api/users/${id}`, {
+      const response = await fetch(`${API_BASE_URL}/api/users/${id}`, {
         method: 'DELETE',
         headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
       });
@@ -82,7 +88,7 @@ export default function AdminDashboard() {
 
   const fetchStats = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/applications/stats');
+      const response = await fetch(`${API_BASE_URL}/api/applications/stats`);
       if (!response.ok) {
         throw new Error('Failed to fetch stats');
       }
@@ -106,7 +112,7 @@ export default function AdminDashboard() {
   };
   const fetchPStats = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/projects/stats');
+      const response = await fetch(`${API_BASE_URL}/api/projects/stats`);
       if (!response.ok) {
         throw new Error('Failed to fetch stats');
       }
@@ -275,7 +281,7 @@ function CreateUserModal({ onClose }: { onClose: () => void }) {
 
   const handleCreate = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/api/users`, {
+      const response = await fetch(`${API_BASE_URL}/api/users`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${localStorage.getItem('token')}` },
         body: JSON.stringify({ name, email, password, role })
@@ -316,7 +322,7 @@ function EditUserModal({ userId, onClose }: { userId: string, onClose: () => voi
   }, []);
 
   const fetchUser = async () => {
-    const response = await fetch(`http://localhost:5000/api/users/${userId}`, {
+    const response = await fetch(`${API_BASE_URL}/api/users/${userId}`, {
       headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
     });
     const data = await response.json();
@@ -325,7 +331,7 @@ function EditUserModal({ userId, onClose }: { userId: string, onClose: () => voi
 
   const handleUpdate = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/api/users/${userId}`, {
+      const response = await fetch(`${API_BASE_URL}/api/users/${userId}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${localStorage.getItem('token')}` },
         body: JSON.stringify({

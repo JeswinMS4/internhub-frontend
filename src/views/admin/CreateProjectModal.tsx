@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+const API_BASE_URL = import.meta.env.REACT_APP_API_BASE_URL || 'http://localhost:5000';
 
 interface User {
   _id: string;
@@ -32,14 +33,14 @@ export default function CreateProjectModal({ onClose }: Props) {
 
   const fetchUsers = async () => {
     // Fetch guides
-    let response = await fetch('http://localhost:5000/api/users?role=guide', {
+    let response = await fetch(`${API_BASE_URL}/api/users?role=guide`, {
       headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
     });
     let data = await response.json();
     setGuides(data); // now only guides are in 'guides' array
   
     // Fetch interns
-    response = await fetch('http://localhost:5000/api/users?role=intern', {
+    response = await fetch(`${API_BASE_URL}/api/users?role=intern`, {
       headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
     });
     data = await response.json();
@@ -56,7 +57,7 @@ export default function CreateProjectModal({ onClose }: Props) {
     setLoading(true);
 
     try {
-      const response = await fetch('http://localhost:5000/api/projects', {
+      const response = await fetch(`${API_BASE_URL}/api/projects`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

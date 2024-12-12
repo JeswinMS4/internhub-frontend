@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+const API_BASE_URL = import.meta.env.REACT_APP_API_BASE_URL || 'http://localhost:5000';
 
 export default function GuideReportsSection({ projectId }) {
   const [reports, setReports] = useState([]);
@@ -10,8 +11,8 @@ export default function GuideReportsSection({ projectId }) {
 
   const fetchReports = async () => {
     const url = projectId
-      ? `http://localhost:5000/api/reports?projectId=${projectId}`
-      : 'http://localhost:5000/api/reports';
+      ? `${API_BASE_URL}/api/reports?projectId=${projectId}`
+      : `${API_BASE_URL}/api/reports`;
     const response = await fetch(url, {
       headers: {
         'Authorization': `Bearer ${localStorage.getItem('token')}`

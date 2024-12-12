@@ -54,8 +54,7 @@ router.post('/', auth(['intern']), upload.single('report'), async (req, res) => 
   }
 });
 
-// GET /api/reports
-// Filters by projectId or internId if provided
+
 
 // GET /api/reports?projectId=&internId=
 // Returns filtered reports based on role and query parameters.

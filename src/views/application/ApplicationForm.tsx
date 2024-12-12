@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Upload, Loader } from 'lucide-react';
+const API_BASE_URL = import.meta.env.REACT_APP_API_BASE_URL || 'http://localhost:5000';
 
 export default function ApplicationForm() {
   const [formData, setFormData] = useState({
@@ -40,7 +41,7 @@ export default function ApplicationForm() {
 
     try {
       const response = await axios.post(
-        `${'http://localhost:5000'}/api/applications/upload-resume`,
+        `${API_BASE_URL}/api/applications/upload-resume`,
         formDataPayload,
         {
           headers: {
@@ -120,7 +121,7 @@ export default function ApplicationForm() {
     }
 
     try {
-      const response = await fetch(`${'http://localhost:5000'}/api/applications`, {
+      const response = await fetch(`${API_BASE_URL}/api/applications`, {
         method: 'POST',
         body: formPayload,
       });

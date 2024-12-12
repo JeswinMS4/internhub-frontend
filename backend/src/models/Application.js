@@ -18,9 +18,10 @@ const ApplicationSchema = new mongoose.Schema({
   class10Marks: { type: Number, required: true },
   class10Board: { type: String, required: true },
   class10YearOfPassing: { type: Number, required: true },
-  resumePath: { type: String, required: true },
+  //resumeUrl: { type: String, required: true },
   status: { type: String, default: 'pending' },
   submittedAt: { type: Date, default: Date.now },
+  resumeKey:{ type: String, required: true }
 });
 
 const Application = mongoose.model('Application', ApplicationSchema);

@@ -14,11 +14,11 @@ interface SidebarProps {
 
 const navigation = [
   { name: 'Dashboard', icon: LayoutDashboard, href: '/' },
-  { name: 'Users', icon: Users, href: '/users' },
-  { name: 'Projects', icon: FolderKanban, href: '/projects' },
-  { name: 'Analytics', icon: BarChart3, href: '/analytics' },
-  { name: 'Settings', icon: Settings, href: '/settings' },
-  { name: 'Notifications', icon: Bell, href: '/notifications' },
+  { name: 'Applications', icon: Users, href: 'admin/applications' },
+  // { name: 'Projects', icon: FolderKanban, href: '/projects' },
+  // { name: 'Analytics', icon: BarChart3, href: '/analytics' },
+  // { name: 'Settings', icon: Settings, href: '/settings' },
+  // { name: 'Notifications', icon: Bell, href: '/notifications' },
 ];
 
 export default function Sidebar({ open }: SidebarProps) {

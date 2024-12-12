@@ -27,7 +27,8 @@ const userSchema = new mongoose.Schema({
   createdAt: {
     type: Date,
     default: Date.now
-  }
+  },
+  assignedProject: { type: mongoose.Schema.Types.ObjectId, ref: 'Project', default: null },
 });
 
 // Hash password before saving

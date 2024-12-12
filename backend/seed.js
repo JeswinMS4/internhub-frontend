@@ -7,36 +7,42 @@ import User from './src/models/User.js';
 dotenv.config();
 
 const users = [
+    // {
+    //   name: 'Admin User',
+    //   email: 'admin@internhub.com',
+    //   password: 'admin123',
+    //   role: 'admin',
+    // },
+    // {
+    //   name: 'Program Manager',
+    //   email: 'pm@internhub.com',
+    //   password: 'pmrs123',
+    //   role: 'program_manager',
+    // },
     {
-      name: 'Admin User',
-      email: 'admin@internhub.com',
-      password: 'admin123',
-      role: 'admin',
-    },
-    {
-      name: 'Program Manager',
-      email: 'pm@internhub.com',
-      password: 'pm123',
-      role: 'program_manager',
-    },
-    {
-      name: 'Guide User',
-      email: 'guide@internhub.com',
+      name: 'Guide user 2 ',
+      email: 'guide2@internhub.com',
       password: 'guide123',
       role: 'guide',
     },
-    {
-      name: 'Intern User',
-      email: 'intern@internhub.com',
-      password: 'intern123',
-      role: 'intern',
+        {
+      name: 'Guide user 3 ',
+      email: 'guide3@internhub.com',
+      password: 'guide123',
+      role: 'guide',
     },
-    {
-      name: 'Panel Member',
-      email: 'panel@internhub.com',
-      password: 'panel123',
-      role: 'panel_member',
-    },
+    // {
+    //   name: 'Intern User',
+    //   email: 'intern@internhub.com',
+    //   password: 'intern123',
+    //   role: 'intern',
+    // },
+    // {
+    //   name: 'Panel Member',
+    //   email: 'panel@internhub.com',
+    //   password: 'panel123',
+    //   role: 'panel_member',
+    // },
   ]
 
 const seedDatabase = async () => {
@@ -48,9 +54,9 @@ const seedDatabase = async () => {
     });
     console.log('Connected to MongoDB');
 
-    // Clear existing data
-    await User.deleteMany({});
-    console.log('Existing users removed');
+    // // Clear existing data
+    // await User.deleteMany({});
+    // console.log('Existing users removed');
 
     // Seed users
     for (const userData of users) {

@@ -71,7 +71,9 @@ export default function LoginForm() {
                 type="email"
                 autoComplete="email"
                 required
-                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300
+                  placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500
+                  focus:border-indigo-500 focus:z-10 sm:text-sm"
                 placeholder="Email address"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -88,7 +90,9 @@ export default function LoginForm() {
                 type="password"
                 autoComplete="current-password"
                 required
-                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300
+                  placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500
+                  focus:border-indigo-500 focus:z-10 sm:text-sm"
                 placeholder="Password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
@@ -100,33 +104,44 @@ export default function LoginForm() {
           <div>
             <button
               type="submit"
-              className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50"
+              className="group relative w-full flex justify-center py-2 px-4 border border-transparent
+              text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none
+              focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50"
               disabled={isLoading}
             >
               {isLoading ? 'Signing in...' : 'Sign in'}
             </button>
           </div>
+        </form>
 
-          <div className="mt-6">
-            <div className="relative">
-              <div className="absolute inset-0 flex items-center">
-                <div className="w-full border-t border-gray-300" />
-              </div>
-              <div className="relative flex justify-center text-sm">
-                <span className="px-2 bg-gray-50 text-gray-500">Demo Accounts</span>
-              </div>
+        <div className="mt-6">
+          <button
+            type="button"
+            onClick={() => navigate('/')} // Navigate to LandingPage
+            className="mt-2 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium
+            rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none"
+          >
+            Back To Home
+          </button>
+        </div>
+
+        <div className="mt-6">
+          <div className="relative">
+            <div className="absolute inset-0 flex items-center">
+              <div className="w-full border-t border-gray-300" />
             </div>
-            <div className="mt-6 grid grid-cols-1 gap-3">
-              <div className="text-sm text-center text-gray-600">
-                <p>Admin: admin@internhub.com / admin123</p>
-                <p>Program Manager: pm@internhub.com / pm123</p>
-                <p>Guide: guide@internhub.com / guide123</p>
-                <p>Intern: intern@internhub.com / intern123</p>
-                <p>Panel Member: panel@internhub.com / panel123</p>
-              </div>
+            <div className="relative flex justify-center text-sm">
+              <span className="px-2 bg-gray-50 text-gray-500">Demo Accounts</span>
             </div>
           </div>
-        </form>
+          <div className="mt-6 grid grid-cols-1 gap-3 text-center text-sm text-gray-600">
+            <p>Admin: admin@internhub.com / admin123</p>
+            <p>Program Manager: pm@internhub.com / pm123</p>
+            <p>Guide: guide@internhub.com / guide123</p>
+            <p>Intern: intern@internhub.com / intern123</p>
+            <p>Panel Member: panel@internhub.com / panel123</p>
+          </div>
+        </div>
       </div>
     </div>
   );

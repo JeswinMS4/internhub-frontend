@@ -1,0 +1,68 @@
+
+
+N Sudharshan Reddy
++Bangalore, IN·+91 9611002599·#sudhrshan18@gmail.com
+Education
+Ramaiah Institute of TechnologyBangalore
+B.E in Computer Science and Engineering (AI & ML)2021 – 2025
+•
+Current CGPA: 9/10
+•
+Coursework:  Data Structures, Algorithms, Software Engineering, DBMS, Computer Networks, Operating Systems, OOPS with
+C++, Java, Machine Learning, Deep Learning
+Work Experience
+Unisys Campus Research ProgramOct 2023 – March 2024
+ML Research InternRemote
+•
+Implemented a solution fordocument retrieval, ensuring user queries were directed to the most relevant documents across
+multiple domains (HR, Finance) and facilitating preciseanswer extraction.
+•
+Focused on improving query accuracy and document relevance, achieving80 % accuracyin identifying the correct document
+across multiple sources.
+•
+UtilizedLangChainfor query processing, HuggingFace models forNLP,Sentence Transformers, andDocument
+Clusteringfor document classification and selection.
+Yubi (Fintech company)May 2023 – Oct 2023
+ML InternRemote
+•
+Developed anNLP-based solution for fetching accurate answers from documents based on user queries and eliminating manual
+search efforts.
+•
+Automated query generation with aQ&A T5 Model, speeding up testing by 60 % and created a custom dataset with 8,000
+entries and 500 queries.
+•
+Made use of LLM-poweredRAGpipeline integrated with aVector Databaseto enhance retrieval accuracy and efficiency.
+Projects
+File Distribution System
+•
+Developed aFile Distribution SystemusingTCP protocolto efficiently manage file transfers.
+•
+Integrated aGroup Management Systemallowing admins to create and manage groups seamlessly.
+•
+ImplementedMulticastingin two UDP phases:with ACKandwithout ACKfor enhanced performance.
+•
+Supported simultaneous distribution ofmultiple files and folderswith ensureddata integrityin the TCP-based system.
+Network Intrusion Detection System
+•
+Implemented a system to detectDDoS attackson servers.
+•
+Collected and analyzed network traffic usingPySharkandCICFlowmeter.
+•
+Trained anXGBoost modelon theCICIDS2017 dataset(70K rows, 82 columns) for classifying network flows.
+•
+Enabledreal-time classificationof network traffic every3 seconds.
+MSRIT Udbhav’24 Fest Website
+•
+Created theUI for the MSRIT Udbhav Fest’24usingHTML,CSS, andJavaScript.
+•
+Designed and populated sections forevent details,registration, andcoordinator contacts.
+Skills
+•Languages:C/C++, Python, Java
+•Skills:NLP, Machine Learning, PyTorch, Hugging Face, Git, Flask, Streamlit
+•Databases:MySQL, Weaviate
+•IDEs:VS Code, Kaggle Notebook, Google Colab
+Achievements
+•Second Pricein Energy Transition Hackathon organized byMercuria, Amphora, and Curl Tech
+•Second Runner-upfor System Programming Theme inTallyCodebrewers’24organized by Tally Solutions.
+•Developed anHR and finance query dataset(1,382 rows) with5,851 downloadson HuggingFace.
+•SecuredFirst Placetwice in AI hackathons atBMSCE Phase-Shift ’22 and ’23.

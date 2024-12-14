@@ -135,11 +135,6 @@ export default function LoginForm() {
             </div>
           </div>
           <div className="mt-6 grid grid-cols-1 gap-3 text-center text-sm text-gray-600">
-            <p>Admin: admin@internhub.com / admin123</p>
-            <p>Program Manager: pm@internhub.com / pm123</p>
-            <p>Guide: guide@internhub.com / guide123</p>
-            <p>Intern: intern@internhub.com / intern123</p>
-            <p>Panel Member: panel@internhub.com / panel123</p>
           </div>
         </div>
       </div>
